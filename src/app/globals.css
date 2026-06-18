@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --chrome-950: #0f1117;
+  --chrome-900: #1a1d27;
+  --chrome-800: #1e2132;
+  --chrome-700: #252840;
+  --chrome-600: #2d3048;
+  --indigo: #6366f1;
+  --indigo-hover: #5457e5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--chrome-600);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3d4060;
+}
+
+/* Section block hover/select styles */
+.section-block {
+  position: relative;
+  border: 2px solid transparent;
+  transition: border-color 0.15s ease;
+  cursor: pointer;
+}
+
+.section-block:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+}
+
+.section-block.selected {
+  border-color: #6366f1;
+}
+
+.section-controls {
+  display: none;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 20;
+  gap: 4px;
+  flex-direction: row;
+}
+
+.section-block:hover .section-controls,
+.section-block.selected .section-controls {
+  display: flex;
+}
+
+/* Drop indicator for DnD */
+.drop-indicator {
+  height: 3px;
+  background: var(--indigo);
+  border-radius: 2px;
+  margin: 0 24px;
+  animation: fadeIn 0.1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Canvas preview page styles (isolated from builder chrome) */
+.preview-canvas {
+  background: #ffffff;
+  min-height: 100%;
+}
+
+/* Smooth section transitions */
+.section-wrapper {
+  animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
