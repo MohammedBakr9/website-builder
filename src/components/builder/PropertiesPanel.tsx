@@ -42,7 +42,7 @@ export function PropertiesPanel() {
               <PropFieldInput
                 key={field.key}
                 field={field}
-                value={(section.data as Record<string, string>)[field.key] ?? ""}
+             value={(section.data as unknown as Record<string, string>)[field.key] ?? ""}
                 onChange={(val) => handleChange(field.key, val)}
               />
             ))}
