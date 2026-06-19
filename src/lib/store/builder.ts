@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { v4 as uuidv4 } from "crypto";
 import type { BuilderStore, Section, SectionData, SectionType, Viewport } from "@/lib/types";
 import { SECTION_DEFINITIONS } from "@/lib/utils/sections";
 
